@@ -24,13 +24,13 @@ https://saleserve.herokuapp.com/
 | POST      | api/v1/users/auth/signup                        | Signin a user                                     |
 | POST      | api/v1/users/auth/signout                       | Signout a user                                    |
 | POST      | api/v1/products                                 | Add a product                                     |
+| GET       | api/v1/products                                 | Fetch all products                                |
 
 
 ## Upcoming API endpoints in order of priority
 
 | HTTP VERB | ENDPOINT                                        | FUNCTIONALITY                                     |
 | --------- | ----------------------------------------------- | ------------------------------------------------- |
-| GET       | api/v1/products                                 | Fetch all products                                |
 | GET       | api/v1/products/:productName                    | Fetch a specific product                          |
 | GET       | api/v1/users                                    | Fetch all users                                   |
 | GET       | api/v1/users/:email                             | Fetch a specific user                             |
