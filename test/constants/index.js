@@ -16,6 +16,23 @@ export const signUpValidUser = async () => {
   });
 };
 
+export const signUpSuperAdminUser = async () => {
+  return await request(app).post("/api/v1/auth/signup").send({
+    username: "superadmin",
+    email: "superadmin@test.com",
+    password: "superadmin",
+    userType: 'super-admin'
+  });
+};
+export const signInSuperAdminUser = async () => {
+  return await request(app).post("/api/v1/auth/signin").send({
+    username: "superadmin",
+    email: "superadmin@test.com",
+    password: "superadmin",
+    userType: 'super-admin'
+  });
+};
+
 export const signOutValidUser = async () => {
   return await request(app).post("/api/v1/auth/signout");
 };
@@ -24,5 +41,13 @@ export const getAllUsers = async () => {
   return await request(app).get("/api/v1/users");
 };
 export async function DestroyDummyUser(user) {
-  return await User.destroy({ force: true });
+  return await user.destroy({ force: true });
+}
+
+export const newProduct1 = {
+  title: 'Dell Inspiron',
+  description: 'The latest laptop for 2020',
+  category: 'laptop',
+  price: 50.00,
+  quantity: 5  
 }
