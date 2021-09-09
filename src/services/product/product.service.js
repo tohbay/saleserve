@@ -40,7 +40,6 @@ const addProduct = asyncHandler(async (req, res) => {
       }
     );
   } catch (error) {
-    console.log('>>>>>>>>>>>>>>', error.message)
     return res.status(500).json({
       error: true,
       message: "Ooops, Something went wrong. Please contact admin for support",
@@ -48,4 +47,26 @@ const addProduct = asyncHandler(async (req, res) => {
   }
 });
 
-export { addProduct };
+const getAllProducts = asyncHandler(async (req, res) => {
+  try {
+    const serviceOperation = await db.sequelize.transaction(
+      async (transaction) => {
+        const allProducts = await db.Product.findAll()
+        return res.status(201).json({
+          success: true,
+          message: "Products successfully fetched",
+          data: allProducts,
+        });
+      }
+    );
+  } catch (error) {
+    return res.status(500).json({
+      error: true,
+      message: "Ooops, Something went wrong. Please contact admin for support",
+    });
+  }
+});
+
+
+
+export { addProduct , getAllProducts};
