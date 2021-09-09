@@ -1,6 +1,7 @@
 import express from "express";
 
 import userAPI from "./services/auth";
+import productAPI from './services/product'
 
 const router = express.Router();
 
@@ -12,5 +13,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/auth", userAPI);
+router.use("/products", productAPI);
 
 export default router;

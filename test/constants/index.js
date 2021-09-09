@@ -26,10 +26,8 @@ export const signUpSuperAdminUser = async () => {
 };
 export const signInSuperAdminUser = async () => {
   return await request(app).post("/api/v1/auth/signin").send({
-    username: "superadmin",
     email: "superadmin@test.com",
     password: "superadmin",
-    userType: 'super-admin'
   });
 };
 

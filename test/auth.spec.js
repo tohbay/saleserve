@@ -13,6 +13,8 @@ describe("User Signup", () => {
   it("returns 201 ok when signup request is valid", async () => {
     const response = await signUpValidUser();
 
+    console.log(response.body)
+
     expect(response.status).to.eql(201);
     expect(response.body.message).to.eql("User successfully created");
   });
@@ -82,17 +84,6 @@ describe("User SignOut", () => {
 
     expect(response.status).to.eql(200);
   });
-
-  // it("returns error message when creating accout request is not valid because there is no user cookie", async () => {
-  //   const user = await signUpValidUser();
-  //   await signInValidUser();
-
-  //   DestroyDummyUser(user);
-
-  //   const response = await request(app).post("/api/v1/accounts");
-
-  //   expect(response.body.message).to.eql("User not Authenticated");
-  // });
 });
 
 

@@ -10,19 +10,21 @@ import { signUpValidUser, signInValidUser,signUpSuperAdminUser, signInSuperAdmin
 
 beforeEach(async () => {
   await db.Product.destroy({ cascade: true, truncate: true });
+  await db.User.destroy({ cascade: true, truncate: true });
 });
 
 describe("Test Product", () => {
-  it.only("returns 201 ok when product is successfully created", async () => {
+  it("returns 201 ok when product is successfully created", async () => {
     const user = await signUpSuperAdminUser();
     await signInSuperAdminUser();
     const userList = await db.User.findAll();
+    
     const savedUser = userList[0];
-
+    
     const newuser = await db.User.findOne({
       where: { id: savedUser.id },
     });
-
+    
     const accessToken = createTokens(newuser);
 
     const response = await request(app)
@@ -35,9 +37,10 @@ describe("Test Product", () => {
     expect(response.status).to.eql(201);
   });
 
-    it.only("returns 403 forbidden error message if logged in user creating a product is not a super-admin", async () => {
+    it("returns 403 forbidden error message if logged in user creating a product is not a super-admin", async () => {
     const user = await signUpValidUser();
     await signInValidUser();
+
     const userList = await db.User.findAll();
     const savedUser = userList[0];
 
