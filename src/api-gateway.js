@@ -1,5 +1,7 @@
 import express from "express";
 
+import userAPI from "./services/auth";
+
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -8,5 +10,7 @@ router.get("/", (req, res) => {
     message: "Welcome to saleserve API 👍🏼 🌍 ⚡️ 🥂 🏆",
   });
 });
+
+router.use("/auth", userAPI);
 
 export default router;
