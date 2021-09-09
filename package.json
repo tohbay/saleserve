@@ -1,0 +1,49 @@
+{
+  "name": "speedpay",
+  "version": "1.0.0",
+  "description": "A standard REST API system for an e-commerce website",
+  "main": "./src/index.js",
+  "scripts": {
+        "start": "NODE_ENV=production node -r dotenv/config -r esm src/index.js",
+    "dev": "NODE_ENV=development nodemon -r dotenv/config -r esm src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "e-commerce",
+    "REST",
+    "API"
+  ],
+  "author": "@tohbay",
+  "license": "ISC",
+    "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.6",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.4.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "pino": "^6.13.0",
+    "pino-pretty": "^5.1.3",
+    "regenerator-runtime": "^0.13.9",
+    "sequelize": "^5.22.4",
+    "sequelize-cli": "^6.2.0",
+    "uuid": "^3.4.0",
+    "validate.js": "^0.13.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "coveralls": "^3.1.1",
+    "marked": "^3.0.0",
+    "nodemon": "^2.0.12",
+    "nyc": "^15.1.0",
+    "supertest": "^6.1.6"
+  }
+}
